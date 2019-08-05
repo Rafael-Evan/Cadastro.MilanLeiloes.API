@@ -1,0 +1,14 @@
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\bin\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.deps.json
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\bin\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.runtimeconfig.json
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\bin\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.runtimeconfig.dev.json
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\bin\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.dll
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\bin\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.pdb
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.csprojAssemblyReference.cache
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.csproj.CoreCompileInputs.cache
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.RazorAssemblyInfo.cache
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.RazorAssemblyInfo.cs
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.AssemblyInfoInputs.cache
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.AssemblyInfo.cs
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.RazorTargetAssemblyInfo.cache
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.dll
+C:\Users\rafael.evangelista\source\repos\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.API\obj\Debug\netcoreapp2.1\Cadastro.MilanLeiloes.API.pdb
