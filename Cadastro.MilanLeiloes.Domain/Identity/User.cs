@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Cadastro.MilanLeiloes.API.Model
+namespace Cadastro.MilanLeiloes.Domain.Model
 {
     public class User : IdentityUser<int>
     {

@@ -1,9 +1,9 @@
-﻿using Cadastro.MilanLeiloes.API.Model;
+﻿using Cadastro.MilanLeiloes.Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Cadastro.MilanLeiloes.API
+namespace Cadastro.MilanLeiloes.Repository
 {
     public class ApplicationDbContext : IdentityDbContext<User, Role, int,
                                                         IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
