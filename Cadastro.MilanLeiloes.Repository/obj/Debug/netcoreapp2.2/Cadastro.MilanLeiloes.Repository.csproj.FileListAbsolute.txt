@@ -1,0 +1,12 @@
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\bin\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.deps.json
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\bin\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.dll
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\bin\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\bin\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Domain.dll
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\bin\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Domain.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.csprojAssemblyReference.cache
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.csproj.CoreCompileInputs.cache
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.AssemblyInfoInputs.cache
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.AssemblyInfo.cs
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.csproj.CopyComplete
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.dll
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Repository\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Repository.pdb
