@@ -126,6 +126,10 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -138,7 +142,7 @@
               "target": "Package",
               "version": "[2.2.6, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[2.2.6, )"
             },

@@ -32,7 +32,8 @@ namespace Cadastro.MilanLeiloes.API
 
             services.AddDbContext<ApplicationDbContext>(options =>
               options.UseSqlServer(
-                  Configuration.GetConnectionString("DefaultConnection")));
+                  Configuration.GetConnectionString("DefaultConnection"),
+                  x => x.MigrationsAssembly("Cadastro.MilanLeiloes.Repository")));
 
             services.AddCors();
 

@@ -10,5 +10,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>Cadastro.MilanLeiloes.Repository.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+	<OutputPath>..\Cadastro.MilanLeiloes.Repository\bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
 </Project>
