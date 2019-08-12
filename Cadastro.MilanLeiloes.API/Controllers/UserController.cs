@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cadastro.MilanLeiloes.API.Dtos;
 using Cadastro.MilanLeiloes.Domain.Model;
+using Cadastro.MilanLeiloes.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -54,6 +55,14 @@ namespace Cadastro.MilanLeiloes.API.Controllers
                 var result = await _userManager.CreateAsync(user, userDto.Password);
 
                 var userToReturn = _mapper.Map<UserDto>(user);
+
+                if(userDto.Celular != 0 && userDto.TelefoneResidencial != 0)
+                {
+                    var telefone = new Telefone();
+                    telefone.TelefoneResidencial = userDto.TelefoneResidencial;
+                    telefone.Celular = userDto.Celular;
+                    telefone.TelefoneComercial = userDto.TelefoneComercial;
+                }
 
                 if (result.Succeeded)
                 {
