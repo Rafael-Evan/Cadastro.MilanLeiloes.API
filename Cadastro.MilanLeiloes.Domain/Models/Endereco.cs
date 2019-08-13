@@ -21,7 +21,7 @@ namespace Cadastro.MilanLeiloes.Domain.Models
         [Required]
         public virtual string Estado { get; set; }
         [Required]
-        public virtual int CEP { get; set; }
+        public virtual string CEP { get; set; }
         public virtual int UserId { get; set; }
 
         public User User { get; set; }

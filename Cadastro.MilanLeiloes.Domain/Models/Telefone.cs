@@ -13,7 +13,7 @@ namespace Cadastro.MilanLeiloes.Domain.Models
         public virtual int Id { get; set; }
         public virtual int? TelefoneResidencial { get; set; }
         public virtual int? TelefoneComercial { get; set; }
-        public virtual int Celular { get; set; }
+        public virtual string Celular { get; set; }
         public virtual int UserId { get; set; }
 
         public User User { get; set; }

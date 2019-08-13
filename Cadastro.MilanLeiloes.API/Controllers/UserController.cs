@@ -2,6 +2,7 @@
 using Cadastro.MilanLeiloes.API.Dtos;
 using Cadastro.MilanLeiloes.Domain.Model;
 using Cadastro.MilanLeiloes.Domain.Models;
+using Cadastro.MilanLeiloes.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -22,16 +23,19 @@ namespace Cadastro.MilanLeiloes.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly ApplicationDbContext _context;
         private readonly IConfiguration _config;
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IMapper _mapper;
 
-        public UserController(IConfiguration config,
+        public UserController(ApplicationDbContext context,
+                              IConfiguration config,
                               UserManager<User> userManager,
                               SignInManager<User> signInManager,
                               IMapper mapper)
         {
+            _context = context;
             _config = config;
             _userManager = userManager;
             _signInManager = signInManager;
@@ -56,12 +60,32 @@ namespace Cadastro.MilanLeiloes.API.Controllers
 
                 var userToReturn = _mapper.Map<UserDto>(user);
 
-                if(userDto.Celular != 0 && userDto.TelefoneResidencial != 0)
+                if (userDto.TelefoneCelular != null && userDto.TelefoneResidencial != 0)
                 {
                     var telefone = new Telefone();
+                    telefone.UserId = user.Id;
                     telefone.TelefoneResidencial = userDto.TelefoneResidencial;
-                    telefone.Celular = userDto.Celular;
+                    telefone.Celular = userDto.TelefoneCelular;
                     telefone.TelefoneComercial = userDto.TelefoneComercial;
+                    _context.Add(telefone);
+                    await _context.SaveChangesAsync();
+                }
+
+                if (userDto.Endereco != null && userDto.Numero != 0
+                    && userDto.Bairro != null && userDto.Cidade != null
+                    && userDto.Estado != null && userDto.CEP != null)
+                {
+                    var endereco = new Endereco();
+                    endereco.UserId = user.Id;
+                    endereco.Rua = userDto.Endereco;
+                    endereco.Numero = userDto.Numero;
+                    endereco.Complemento = userDto.Complemento;
+                    endereco.Bairro = userDto.Bairro;
+                    endereco.Cidade = userDto.Cidade;
+                    endereco.Estado = userDto.Estado;
+                    endereco.CEP = userDto.CEP;
+                    _context.Add(endereco);
+                    await _context.SaveChangesAsync();
                 }
 
                 if (result.Succeeded)

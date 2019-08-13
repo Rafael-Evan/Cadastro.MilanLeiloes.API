@@ -7,7 +7,6 @@ namespace Cadastro.MilanLeiloes.API.Dtos
 {
     public class UserDto
     {
-        public int Id { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -19,7 +18,14 @@ namespace Cadastro.MilanLeiloes.API.Dtos
         public int RG { get; set; }
         public int TelefoneResidencial { get; set; }
         public int TelefoneComercial { get; set; }
-        public int Celular { get; set; }
+        public string TelefoneCelular { get; set; }
+        public string Endereco { get; set; }
+        public int Numero { get; set; }
+        public string Complemento { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Estado { get; set; }
+        public string CEP { get; set; }
 
     }
 }
