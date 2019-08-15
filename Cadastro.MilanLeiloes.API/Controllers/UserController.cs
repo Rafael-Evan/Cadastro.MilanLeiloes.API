@@ -102,6 +102,34 @@ namespace Cadastro.MilanLeiloes.API.Controllers
             }
         }
 
+        [HttpPost("SocialLogin")]
+        [AllowAnonymous]
+        public async Task<IActionResult> SocialLogin(UserSocialLoginDto userSocialLogin)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(userSocialLogin.Email);
+
+                var appUser = await _userManager.Users
+                    .FirstOrDefaultAsync(u => u.NormalizedEmail == userSocialLogin.Email.ToUpper());
+
+                var userToReturn = _mapper.Map<UserSocialLoginDto>(appUser);
+
+                return Ok(new
+                {
+                    token = GenarateJwToken(appUser).Result,
+                    user = userToReturn
+
+                });
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou{ex.Message}");
+            }
+
+        }
+
         [HttpPost("Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginDto userLogin)

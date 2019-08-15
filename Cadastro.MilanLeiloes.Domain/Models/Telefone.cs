@@ -9,7 +9,6 @@ namespace Cadastro.MilanLeiloes.Domain.Models
 {
     public class Telefone
     {
-        [Key]
         public virtual int Id { get; set; }
         public virtual int? TelefoneResidencial { get; set; }
         public virtual int? TelefoneComercial { get; set; }
