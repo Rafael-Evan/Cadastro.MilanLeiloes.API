@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Cadastro.MilanLeiloes.API.Dtos;
 using Cadastro.MilanLeiloes.Domain.Model;
-using Cadastro.MilanLeiloes.Domain.Models;
 using Cadastro.MilanLeiloes.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -59,34 +58,6 @@ namespace Cadastro.MilanLeiloes.API.Controllers
                 var result = await _userManager.CreateAsync(user, userDto.Password);
 
                 var userToReturn = _mapper.Map<UserDto>(user);
-
-                if (userDto.TelefoneCelular != null && userDto.TelefoneResidencial != 0)
-                {
-                    var telefone = new Telefone();
-                    telefone.UserId = user.Id;
-                    telefone.TelefoneResidencial = userDto.TelefoneResidencial;
-                    telefone.Celular = userDto.TelefoneCelular;
-                    telefone.TelefoneComercial = userDto.TelefoneComercial;
-                    _context.Add(telefone);
-                    await _context.SaveChangesAsync();
-                }
-
-                if (userDto.Endereco != null && userDto.Numero != 0
-                    && userDto.Bairro != null && userDto.Cidade != null
-                    && userDto.Estado != null && userDto.CEP != null)
-                {
-                    var endereco = new Endereco();
-                    endereco.UserId = user.Id;
-                    endereco.Rua = userDto.Endereco;
-                    endereco.Numero = userDto.Numero;
-                    endereco.Complemento = userDto.Complemento;
-                    endereco.Bairro = userDto.Bairro;
-                    endereco.Cidade = userDto.Cidade;
-                    endereco.Estado = userDto.Estado;
-                    endereco.CEP = userDto.CEP;
-                    _context.Add(endereco);
-                    await _context.SaveChangesAsync();
-                }
 
                 if (result.Succeeded)
                 {

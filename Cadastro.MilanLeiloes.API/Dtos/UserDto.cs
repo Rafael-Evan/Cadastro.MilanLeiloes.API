@@ -1,7 +1,7 @@
 ﻿using Cadastro.MilanLeiloes.Domain.Model;
-using Cadastro.MilanLeiloes.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cadastro.MilanLeiloes.API.Dtos
 {
@@ -16,16 +16,20 @@ namespace Cadastro.MilanLeiloes.API.Dtos
         public string Sexo { get; set; }
         public string EstadoCivil { get; set; }
         public int RG { get; set; }
-        public int TelefoneResidencial { get; set; }
-        public int TelefoneComercial { get; set; }
-        public string TelefoneCelular { get; set; }
-        public string Endereco { get; set; }
-        public int Numero { get; set; }
-        public string Complemento { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string CEP { get; set; }
+        public virtual int? TelefoneResidencial { get; set; }
+        public virtual int? TelefoneComercial { get; set; }
+        public virtual string Celular { get; set; }
+        public virtual string Rua { get; set; }
+        public virtual int Numero { get; set; }
+        public virtual string Complemento { get; set; }
+        [Required]
+        public virtual string Bairro { get; set; }
+        [Required]
+        public virtual string Cidade { get; set; }
+        [Required]
+        public virtual string Estado { get; set; }
+        [Required]
+        public virtual string CEP { get; set; }
 
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cadastro.MilanLeiloes.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190808153032_NewMigration")]
+    [Migration("20190819125519_NewMigration")]
     partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,23 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<string>("CEP")
+                        .IsRequired()
+                        .HasColumnType("varchar(8)");
+
                     b.Property<string>("CPF");
+
+                    b.Property<string>("Celular");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<string>("Complemento");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -66,7 +82,12 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("EstadoCivil");
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("EstadoCivil")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(150)");
@@ -81,6 +102,8 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
 
+                    b.Property<int>("Numero");
+
                     b.Property<string>("PasswordHash");
 
                     b.Property<string>("PhoneNumber");
@@ -89,9 +112,17 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<int>("RG");
 
+                    b.Property<string>("Rua")
+                        .HasColumnType("nvarchar(70)");
+
                     b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("Sexo");
+                    b.Property<string>("Sexo")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<int?>("TelefoneComercial");
+
+                    b.Property<int?>("TelefoneResidencial");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -122,60 +153,6 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-                });
-
-            modelBuilder.Entity("Cadastro.MilanLeiloes.Domain.Models.Endereco", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Bairro")
-                        .IsRequired();
-
-                    b.Property<int>("CEP");
-
-                    b.Property<string>("Cidade")
-                        .IsRequired();
-
-                    b.Property<string>("Complemento");
-
-                    b.Property<string>("Estado")
-                        .IsRequired();
-
-                    b.Property<int>("Numero");
-
-                    b.Property<string>("Rua")
-                        .IsRequired();
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Endereco");
-                });
-
-            modelBuilder.Entity("Cadastro.MilanLeiloes.Domain.Models.Telefone", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Celular");
-
-                    b.Property<int?>("TelefoneComercial");
-
-                    b.Property<int?>("TelefoneResidencial");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Telefone");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -257,22 +234,6 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.HasOne("Cadastro.MilanLeiloes.Domain.Model.User", "User")
                         .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Cadastro.MilanLeiloes.Domain.Models.Endereco", b =>
-                {
-                    b.HasOne("Cadastro.MilanLeiloes.Domain.Model.User", "User")
-                        .WithMany("Enderecos")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Cadastro.MilanLeiloes.Domain.Models.Telefone", b =>
-                {
-                    b.HasOne("Cadastro.MilanLeiloes.Domain.Model.User", "User")
-                        .WithMany("Telefones")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

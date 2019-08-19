@@ -46,9 +46,19 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     FullName = table.Column<string>(type: "nvarchar(150)", nullable: true),
                     CPF = table.Column<string>(nullable: true),
                     DataDeNascimento = table.Column<DateTime>(nullable: false),
-                    Sexo = table.Column<string>(nullable: true),
-                    EstadoCivil = table.Column<string>(nullable: true),
-                    RG = table.Column<int>(nullable: false)
+                    Sexo = table.Column<string>(type: "varchar(20)", nullable: true),
+                    EstadoCivil = table.Column<string>(type: "varchar(20)", nullable: true),
+                    RG = table.Column<int>(nullable: false),
+                    TelefoneResidencial = table.Column<int>(nullable: true),
+                    TelefoneComercial = table.Column<int>(nullable: true),
+                    Celular = table.Column<string>(nullable: true),
+                    Rua = table.Column<string>(type: "nvarchar(70)", nullable: true),
+                    Numero = table.Column<int>(nullable: false),
+                    Complemento = table.Column<string>(nullable: true),
+                    Bairro = table.Column<string>(type: "nvarchar(70)", nullable: false),
+                    Cidade = table.Column<string>(type: "nvarchar(70)", nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    CEP = table.Column<string>(type: "varchar(8)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -161,54 +171,6 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Endereco",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Rua = table.Column<string>(nullable: false),
-                    Numero = table.Column<int>(nullable: false),
-                    Complemento = table.Column<string>(nullable: true),
-                    Bairro = table.Column<string>(nullable: false),
-                    Cidade = table.Column<string>(nullable: false),
-                    Estado = table.Column<string>(nullable: false),
-                    CEP = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Endereco", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Endereco_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Telefone",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    TelefoneResidencial = table.Column<int>(nullable: true),
-                    TelefoneComercial = table.Column<int>(nullable: true),
-                    Celular = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Telefone", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Telefone_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -247,16 +209,6 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Endereco_UserId",
-                table: "Endereco",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Telefone_UserId",
-                table: "Telefone",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -275,12 +227,6 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Endereco");
-
-            migrationBuilder.DropTable(
-                name: "Telefone");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
