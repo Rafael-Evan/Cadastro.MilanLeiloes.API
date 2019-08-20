@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Cadastro.MilanLeiloes.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -39,5 +40,7 @@ namespace Cadastro.MilanLeiloes.Domain.Model
         public virtual string CEP { get; set; }
 
         public List<UserRole> UserRoles { get; set; }
+
+        public List<Documentos> Documentos { get; set; }
     }
 }

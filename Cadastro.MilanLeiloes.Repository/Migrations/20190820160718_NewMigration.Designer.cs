@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cadastro.MilanLeiloes.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190819125519_NewMigration")]
+    [Migration("20190820160718_NewMigration")]
     partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -155,6 +155,33 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
+            modelBuilder.Entity("Cadastro.MilanLeiloes.Domain.Models.Documentos", b =>
+                {
+                    b.Property<int>("DocumentoId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Extension");
+
+                    b.Property<string>("Id");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Source");
+
+                    b.Property<string>("Type");
+
+                    b.Property<string>("UploadURL");
+
+                    b.Property<int>("UserId");
+
+                    b.HasKey("DocumentoId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Documentos");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
@@ -234,6 +261,14 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.HasOne("Cadastro.MilanLeiloes.Domain.Model.User", "User")
                         .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Cadastro.MilanLeiloes.Domain.Models.Documentos", b =>
+                {
+                    b.HasOne("Cadastro.MilanLeiloes.Domain.Model.User", "User")
+                        .WithMany("Documentos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

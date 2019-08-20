@@ -6,3 +6,4 @@ C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.
 C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Domain\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Domain.AssemblyInfo.cs
 C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Domain\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Domain.dll
 C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Domain\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Domain.pdb
+C:\Users\rafael.evangelista\Documents\GitHub\Cadastro.MilanLeiloes.API\Cadastro.MilanLeiloes.Domain\obj\Debug\netcoreapp2.2\Cadastro.MilanLeiloes.Domain.csprojAssemblyReference.cache

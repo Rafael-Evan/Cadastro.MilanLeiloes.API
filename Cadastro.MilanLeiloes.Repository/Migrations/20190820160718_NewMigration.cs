@@ -171,6 +171,31 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Documentos",
+                columns: table => new
+                {
+                    DocumentoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<string>(nullable: true),
+                    Extension = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Source = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    UploadURL = table.Column<string>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Documentos", x => x.DocumentoId);
+                    table.ForeignKey(
+                        name: "FK_Documentos_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -209,6 +234,11 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Documentos_UserId",
+                table: "Documentos",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -227,6 +257,9 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Documentos");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

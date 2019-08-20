@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Cadastro.MilanLeiloes.API.Dtos;
 using Cadastro.MilanLeiloes.Domain.Model;
+using Cadastro.MilanLeiloes.Domain.Models;
 using Cadastro.MilanLeiloes.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -65,6 +66,32 @@ namespace Cadastro.MilanLeiloes.API.Controllers
                 }
 
                 return BadRequest(result.Errors);
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou{ex.Message}");
+            }
+        }
+
+
+        [HttpPost("Documentos")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Documentos(Documentos documento)
+        {
+            try
+            {
+                _context.Add(documento);
+
+                var result = await _context.SaveChangesAsync();
+
+
+                if (result != null)
+                {
+                    return Created("GetUser", "Teste");
+                }
+
+                return BadRequest();
             }
             catch (Exception ex)
             {
