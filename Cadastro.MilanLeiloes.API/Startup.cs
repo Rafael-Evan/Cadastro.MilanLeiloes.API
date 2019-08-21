@@ -11,8 +11,10 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using System.IO;
 using System.Text;
 
 namespace Cadastro.MilanLeiloes.API
@@ -67,7 +69,11 @@ namespace Cadastro.MilanLeiloes.API
                     };
                 });
 
-            
+            services.AddSingleton<IFileProvider>(
+            new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
+
+
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()

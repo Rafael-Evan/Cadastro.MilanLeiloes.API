@@ -5,10 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Fotos\CadastroMilanLeiloes\2019 - Cópia\**" />
+    <Content Remove="Fotos\CadastroMilanLeiloes\2019 - Cópia\**" />
+    <EmbeddedResource Remove="Fotos\CadastroMilanLeiloes\2019 - Cópia\**" />
+    <None Remove="Fotos\CadastroMilanLeiloes\2019 - Cópia\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\UsersController.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Fotos\CadastroMilanLeiloes\2019\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

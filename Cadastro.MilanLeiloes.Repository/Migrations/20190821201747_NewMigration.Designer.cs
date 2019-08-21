@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cadastro.MilanLeiloes.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190820160718_NewMigration")]
+    [Migration("20190821201747_NewMigration")]
     partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,17 +161,11 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Extension");
-
-                    b.Property<string>("Id");
+                    b.Property<DateTime>("Data");
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Source");
-
-                    b.Property<string>("Type");
-
-                    b.Property<string>("UploadURL");
+                    b.Property<string>("Pasta");
 
                     b.Property<int>("UserId");
 

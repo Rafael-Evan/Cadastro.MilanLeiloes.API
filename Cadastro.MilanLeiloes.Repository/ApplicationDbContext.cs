@@ -34,15 +34,15 @@ namespace Cadastro.MilanLeiloes.Repository
                 .IsRequired();
             });
 
-            //builder.Entity<Documentos>(documento =>
-            //{
-            //    documento.HasKey(ur => new { ur.DocumentoId });
+            builder.Entity<Documentos>(documento =>
+            {
+                documento.HasKey(ur => new { ur.DocumentoId });
 
-            //    documento.HasOne(ur => ur.User)
-            //    .WithMany(r => r.Documentos)
-            //    .HasForeignKey(ur => ur.UserId)
-            //    .IsRequired();
-            //});
+                documento.HasOne(ur => ur.User)
+                .WithMany(r => r.Documentos)
+                .HasForeignKey(ur => ur.UserId)
+                .IsRequired();
+            });
         }
 
     }

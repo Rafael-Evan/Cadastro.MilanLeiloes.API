@@ -177,12 +177,9 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                 {
                     DocumentoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Id = table.Column<string>(nullable: true),
-                    Extension = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Source = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    UploadURL = table.Column<string>(nullable: true),
+                    Pasta = table.Column<string>(nullable: true),
+                    Data = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
