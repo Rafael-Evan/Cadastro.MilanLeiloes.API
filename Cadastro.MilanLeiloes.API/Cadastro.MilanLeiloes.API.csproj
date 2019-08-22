@@ -16,6 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Fotos\CadastroMilanLeiloes\2019\002.jpeg" />
+    <None Remove="Fotos\CadastroMilanLeiloes\2019\a096b5af-a049-4010-9c2c-07f6c1515fb0.png" />
+    <None Remove="Fotos\CadastroMilanLeiloes\2019\cam-1566476963066.jpg" />
+    <None Remove="Fotos\CadastroMilanLeiloes\2019\cam-1566476974346.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Fotos\CadastroMilanLeiloes\2019\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>

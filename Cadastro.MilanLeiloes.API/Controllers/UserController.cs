@@ -42,6 +42,33 @@ namespace Cadastro.MilanLeiloes.API.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost("Documentos")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Documentos(List<Documentos> documentos, string email)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                //documentos.DocumentoId = user.Id;
+                _context.Add(documentos);
+
+                var result = await _context.SaveChangesAsync();
+
+
+                if (result != null)
+                {
+                    return Created("GetUser", "Teste");
+                }
+
+                return BadRequest();
+            }
+            catch (Exception ex)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou{ex.Message}");
+            }
+        }
+
         [HttpGet("GetUser")]
         public async Task<ActionResult> GetUser()
         {
@@ -75,32 +102,6 @@ namespace Cadastro.MilanLeiloes.API.Controllers
         }
 
 
-        //[HttpPost("Documentos")]
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Documentos(List<Documentos> documentos, string email)
-        //{
-        //    try
-        //    {
-        //        var user = await _userManager.FindByEmailAsync(email);
-        //        //documentos.DocumentoId = user.Id;
-        //        _context.Add(documentos);
-
-        //        var result = await _context.SaveChangesAsync();
-
-
-        //        if (result != null)
-        //        {
-        //            return Created("GetUser", "Teste");
-        //        }
-
-        //        return BadRequest();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou{ex.Message}");
-        //    }
-        //}
 
         [HttpPost("SocialLogin")]
         [AllowAnonymous]
