@@ -8,6 +8,7 @@ namespace Cadastro.MilanLeiloes.API.Dtos
     public class UserDto
     {
         public string UserName { get; set; }
+        public string Apelido { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
@@ -30,6 +31,7 @@ namespace Cadastro.MilanLeiloes.API.Dtos
         public virtual string Estado { get; set; }
         [Required]
         public virtual string CEP { get; set; }
+        public DateTime Data { get; set; }
 
     }
 }

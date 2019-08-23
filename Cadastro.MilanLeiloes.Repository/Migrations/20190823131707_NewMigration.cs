@@ -43,6 +43,7 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
+                    Apelido = table.Column<string>(nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(150)", nullable: true),
                     CPF = table.Column<string>(nullable: true),
                     DataDeNascimento = table.Column<DateTime>(nullable: false),
@@ -58,7 +59,8 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     Bairro = table.Column<string>(type: "nvarchar(70)", nullable: false),
                     Cidade = table.Column<string>(type: "nvarchar(70)", nullable: false),
                     Estado = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    CEP = table.Column<string>(type: "varchar(8)", nullable: false)
+                    CEP = table.Column<string>(type: "varchar(8)", nullable: false),
+                    Data = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -178,7 +180,7 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
                     DocumentoId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    Pasta = table.Column<string>(nullable: true),
+                    Pasta = table.Column<int>(nullable: false),
                     Data = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },

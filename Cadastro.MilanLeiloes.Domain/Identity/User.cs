@@ -9,6 +9,7 @@ namespace Cadastro.MilanLeiloes.Domain.Model
 {
     public class User : IdentityUser<int>
     {
+        public string Apelido { get; set; }
         [Column(TypeName = "nvarchar(150)")]
         public string FullName { get; set; }
 
@@ -38,6 +39,7 @@ namespace Cadastro.MilanLeiloes.Domain.Model
         [Required]
         [Column(TypeName = "varchar(8)")]
         public virtual string CEP { get; set; }
+        public DateTime Data { get; set; }
 
         public List<UserRole> UserRoles { get; set; }
 

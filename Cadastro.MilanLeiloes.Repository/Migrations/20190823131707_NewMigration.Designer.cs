@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cadastro.MilanLeiloes.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190821201747_NewMigration")]
+    [Migration("20190823131707_NewMigration")]
     partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,8 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Apelido");
+
                     b.Property<string>("Bairro")
                         .IsRequired()
                         .HasColumnType("nvarchar(70)");
@@ -74,6 +76,8 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<DateTime>("Data");
 
                     b.Property<DateTime>("DataDeNascimento");
 
@@ -165,7 +169,7 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Pasta");
+                    b.Property<int>("Pasta");
 
                     b.Property<int>("UserId");
 

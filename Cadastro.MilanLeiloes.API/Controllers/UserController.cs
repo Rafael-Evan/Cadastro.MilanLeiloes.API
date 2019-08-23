@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Cadastro.MilanLeiloes.API.Dtos;
 using Cadastro.MilanLeiloes.Domain.Model;
-using Cadastro.MilanLeiloes.Domain.Models;
 using Cadastro.MilanLeiloes.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,37 +42,43 @@ namespace Cadastro.MilanLeiloes.API.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost("Documentos")]
+        [HttpGet("Emails")]
         [AllowAnonymous]
-        public async Task<IActionResult> Documentos(List<Documentos> documentos, string email)
+        public async Task<ActionResult> GetEmails()
         {
             try
             {
-                var user = await _userManager.FindByEmailAsync(email);
-                //documentos.DocumentoId = user.Id;
-                _context.Add(documentos);
+                var users = await _context.Users.ToListAsync();
 
-                var result = await _context.SaveChangesAsync();
+                var email = from e in users
+                             select new {email = e.Email };
 
-
-                if (result != null)
-                {
-                    return Created("GetUser", "Teste");
-                }
-
-                return BadRequest();
+                return Ok(email);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados Falhou{ex.Message}");
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
             }
         }
 
-        [HttpGet("GetUser")]
+
+
+        [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> GetUser()
         {
-            return Ok(new UserDto());
+            try
+            {
+                var results = await _context.Users.ToListAsync();
+
+                return Ok(results);
+            }
+            catch (Exception)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+            }
         }
 
         [HttpPost("Register")]
@@ -81,7 +87,10 @@ namespace Cadastro.MilanLeiloes.API.Controllers
         {
             try
             {
+                userDto.Data = DateTime.UtcNow;
                 var user = _mapper.Map<User>(userDto);
+
+                user.UserName = user.Apelido;
 
                 var result = await _userManager.CreateAsync(user, userDto.Password);
 
@@ -137,14 +146,14 @@ namespace Cadastro.MilanLeiloes.API.Controllers
         {
             try
             {
-                var user = await _userManager.FindByNameAsync(userLogin.UserName);
+                var user = await _userManager.FindByEmailAsync(userLogin.Email);
 
                 var result = await _signInManager.CheckPasswordSignInAsync(user, userLogin.Password, false);
 
                 if (result.Succeeded)
                 {
                     var appUser = await _userManager.Users
-                        .FirstOrDefaultAsync(u => u.NormalizedUserName == userLogin.UserName.ToUpper());
+                        .FirstOrDefaultAsync(u => u.NormalizedEmail == userLogin.Email.ToUpper());
 
                     var userToReturn = _mapper.Map<UserLoginDto>(appUser);
 
@@ -171,7 +180,7 @@ namespace Cadastro.MilanLeiloes.API.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName)
+                new Claim(ClaimTypes.Name, user.Email)
             };
 
             var roles = await _userManager.GetRolesAsync(user);

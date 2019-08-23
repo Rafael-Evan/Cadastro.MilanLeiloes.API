@@ -52,6 +52,8 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Apelido");
+
                     b.Property<string>("Bairro")
                         .IsRequired()
                         .HasColumnType("nvarchar(70)");
@@ -72,6 +74,8 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<DateTime>("Data");
 
                     b.Property<DateTime>("DataDeNascimento");
 
@@ -163,7 +167,7 @@ namespace Cadastro.MilanLeiloes.Repository.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Pasta");
+                    b.Property<int>("Pasta");
 
                     b.Property<int>("UserId");
 
