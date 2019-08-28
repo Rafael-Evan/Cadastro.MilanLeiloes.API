@@ -7,16 +7,20 @@ namespace Cadastro.MilanLeiloes.API.Dtos
 {
     public class UserDto
     {
+        public string RazaoSocial { get; set; }
+        public string NomeFantasia { get; set; }
+        public string CNPJ { get; set; }
+        public string InscricaoEstadual { get; set; }
         public string UserName { get; set; }
         public string Apelido { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }
         public string CPF { get; set; }
-        public DateTime DataDeNascimento { get; set; }
+        public DateTime? DataDeNascimento { get; set; }
         public string Sexo { get; set; }
         public string EstadoCivil { get; set; }
-        public int RG { get; set; }
+        public int? RG { get; set; }
         public virtual int? TelefoneResidencial { get; set; }
         public virtual int? TelefoneComercial { get; set; }
         public virtual string Celular { get; set; }

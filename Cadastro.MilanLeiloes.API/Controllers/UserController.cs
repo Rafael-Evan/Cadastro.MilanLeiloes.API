@@ -84,7 +84,7 @@ namespace Cadastro.MilanLeiloes.API.Controllers
         [HttpPost("Register")]
         [AllowAnonymous]
         public async Task<ActionResult> Register(UserDto userDto)
-        {
+      {
             try
             {
                 userDto.Data = DateTime.UtcNow;
